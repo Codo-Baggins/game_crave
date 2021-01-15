@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 import { fetchGameData } from "../apiCalls";
+import { filterUnnecessaryData } from "../utilities/utilities";
 const REACT_APP_KEY = process.env.REACT_APP_RAWG_API_KEY;
 
 const App = () => {
   const [searchedGame, setSearchedGame] = useState("");
   // const [wishList, setWishList] = useState([]);
-  const inputField = document.getElementById("search-form");
-  // const setGameState = (gameName) => {
-  //   setSearchedGame(gameName);
-  // };
 
   const searchGame = (gameName) => {
     if (searchedGame.length >= 0) {
       fetchGameData(gameName, REACT_APP_KEY)
-        .then((data) => console.log(data))
+        .then((data) => filterUnnecessaryData(data))
         .catch((error) => console.error);
     }
   };
