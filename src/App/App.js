@@ -11,9 +11,14 @@ const App = () => {
   const [currentGameInfo, setCurrentGameInfo] = useState(null);
   const [wishList, setWishList] = useState([]);
 
+  const formatInput = (gameName) => {
+    return gameName.replaceAll(" ", "-");
+  };
+
   const searchGame = (gameName) => {
+    const formattedName = formatInput(gameName);
     if (searchedGame.length >= 0) {
-      fetchGameData(gameName, REACT_APP_KEY)
+      fetchGameData(formattedName, REACT_APP_KEY)
         .then((data) => setCurrentGameInfo(filterUnnecessaryData(data)))
         .catch((error) => console.error);
     }
