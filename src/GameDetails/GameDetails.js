@@ -17,17 +17,24 @@ const GameDetails = (props) => {
           <p id='title'>{currentGameInfo.name}</p>
         </section>
         <section>
-          <p>{currentGameInfo.stores.whereToBuy}</p>
+          {currentGameInfo.stores.map((store) => {
+            return (
+              <p>
+                {store.whereToBuy} -{" "}
+                <a href={store.storeURL}>{store.storeURL}</a>
+              </p>
+            );
+          })}
           <p>{currentGameInfo.description}</p>
         </section>
+        <button
+          id='toggle-game-button'
+          onClick={() => {
+            props.toggleFromWishList();
+          }}>
+          {props.toggleButtonText()}
+        </button>
       </section>
-      <button
-        id='toggle-game-button'
-        onClick={() => {
-          props.toggleFromWishList();
-        }}>
-        {props.toggleButtonText()}
-      </button>
     </main>
   );
 };
