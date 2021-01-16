@@ -9,6 +9,5 @@ export const filterUnnecessaryData = (data) => {
       return { whereToBuy: store.store.name, storeURL: store.store.domain };
     }),
   };
-  console.log(refinedVideoGameData);
   return refinedVideoGameData;
 };

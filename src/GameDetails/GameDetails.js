@@ -2,25 +2,33 @@ import React from "react";
 import "./GameDetails.scss";
 
 const GameDetails = (props) => {
+  // console.log(props);
   const { currentGameInfo } = props;
+  // const { toggleFromWishList } = props.toggleFromWishList;
   // console.log("hello");
-  console.log(currentGameInfo);
   return (
-    <section>
-      <div>
-        <section
-          className='game-details'
-          style={{
-            backgroundImage: `url(${currentGameInfo.backgroundImage})`,
-          }}>
+    <main>
+      <section
+        className='game-details'
+        style={{
+          backgroundImage: `url(${currentGameInfo.backgroundImage})`,
+        }}>
+        <section>
           <p id='title'>{currentGameInfo.name}</p>
         </section>
         <section>
           <p>{currentGameInfo.stores.whereToBuy}</p>
           <p>{currentGameInfo.description}</p>
         </section>
-      </div>
-    </section>
+      </section>
+      <button
+        id='toggle-game-button'
+        onClick={() => {
+          props.toggleFromWishList();
+        }}>
+        {props.toggleButtonText()}
+      </button>
+    </main>
   );
 };
 
