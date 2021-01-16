@@ -1,12 +1,24 @@
 import React from "react";
 import "./GameDetails.scss";
 
-const GameDetails = () => {
+const GameDetails = (props) => {
+  const { currentGameInfo } = props;
+  // console.log("hello");
+  console.log(currentGameInfo);
   return (
     <section>
       <div>
-        <section>This is the game title and cover art section</section>
-        <section>THis is the descript and trailer section</section>
+        <section
+          className='game-details'
+          style={{
+            backgroundImage: `url(${currentGameInfo.backgroundImage})`,
+          }}>
+          <p id='title'>{currentGameInfo.name}</p>
+        </section>
+        <section>
+          <p>{currentGameInfo.stores.whereToBuy}</p>
+          <p>{currentGameInfo.description}</p>
+        </section>
       </div>
     </section>
   );
