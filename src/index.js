@@ -6,7 +6,7 @@ import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  <BrowserRouter basename='/games'>
+  <BrowserRouter basename='/'>
     <App />
   </BrowserRouter>,
   document.getElementById("root")

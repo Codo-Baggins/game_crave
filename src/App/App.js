@@ -88,7 +88,7 @@ const App = () => {
               render={({ match }) =>
                 renderGameDetails(match.params.id)
               }></Route>
-            <Route exact path='/games'>
+            <Route exact path='/'>
               <h1>GAME CRAVE</h1>
               <button>Home</button>
               <Form
