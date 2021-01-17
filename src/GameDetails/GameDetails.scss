@@ -1,0 +1,17 @@
+.game-details {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+p { 
+  color: white;
+}
+
+#toggle-game-button {
+  width: 15em;
+  height: 2em;
+}
