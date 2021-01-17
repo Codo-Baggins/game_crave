@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
-// import Form from '../Form/Form'
+import Form from "../Form/Form";
 import GameDetails from "../GameDetails/GameDetails";
 import { fetchGameData } from "../apiCalls";
 import { filterUnnecessaryData } from "../utilities/utilities";
-const REACT_APP_KEY = process.env.REACT_APP_RAWG_API_KEY;
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 const App = () => {
   const [searchedGame, setSearchedGame] = useState(null);
@@ -18,16 +18,17 @@ const App = () => {
   const searchGame = (gameName) => {
     const formattedName = formatInput(gameName);
     if (searchedGame.length >= 0) {
-      fetchGameData(formattedName, REACT_APP_KEY)
+      fetchGameData(formattedName)
         .then((data) => setCurrentGameInfo(filterUnnecessaryData(data)))
         .catch((error) => console.error);
     }
   };
 
-  const renderGameDetails = () => {
+  const renderGameDetails = (gameName) => {
     return (
       currentGameInfo && (
         <GameDetails
+          id={gameName}
           currentGameInfo={currentGameInfo}
           toggleFromWishList={toggleFromWishList}
           toggleButtonText={toggleButtonText}
@@ -61,17 +62,17 @@ const App = () => {
   };
 
   return (
-    <main>
-      <section>
-        <h1>GAME CRAVE</h1>
-        <button>Home</button>
-        <form>
-          <input
+    <BrowserRouter>
+      <main>
+        <section>
+          <Switch>
+            {/* <form>
+            <input
             id='search-form'
             placeholder='Type The Title Of A Game'
             onChange={(event) => setSearchedGame(event.target.value)}
-          />
-          <button
+            />
+            <button
             value={searchedGame}
             onClick={(event) => {
               event.preventDefault();
@@ -79,11 +80,27 @@ const App = () => {
               //setSearchedGame(event.target.value)
             }}>
             Search For A Game
-          </button>
-        </form>
-      </section>
-      {renderGameDetails()}
-    </main>
+            </button>
+          </form> */}
+            <Route
+              exact
+              path='/games/:id'
+              render={({ match }) =>
+                renderGameDetails(match.params.id)
+              }></Route>
+            <Route exact path='/games'>
+              <h1>GAME CRAVE</h1>
+              <button>Home</button>
+              <Form
+                searchGame={searchGame}
+                searchedGame={searchedGame}
+                setSearchedGame={setSearchedGame}
+              />
+            </Route>
+          </Switch>
+        </section>
+      </main>
+    </BrowserRouter>
   );
 };
 
