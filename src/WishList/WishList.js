@@ -10,6 +10,9 @@ const WishList = (props) => {
         key={game.id}
         name={game.name}
         art={game.backgroundImage}
+        formatInput={props.formatInput}
+        setCurrentGameInfo={props.setCurrentGameInfo}
+        wishList={props.wishList}
       />
     );
   });

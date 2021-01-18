@@ -6,6 +6,7 @@ import WishList from "../WishList/WishList";
 import { fetchGameData } from "../apiCalls";
 import { filterUnnecessaryData } from "../utilities/utilities";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { render } from "react-dom";
 
 const App = () => {
   const [searchedGame, setSearchedGame] = useState(null);
@@ -65,10 +66,6 @@ const App = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (searchedGame.lengthsetSearchedGame("");
-  // }, [searchedGame]);
-
   return (
     <BrowserRouter>
       <main>
@@ -88,26 +85,17 @@ const App = () => {
             />
           </section>
           <Switch>
-            {/* <form>
-            <input
-            id='search-form'
-            placeholder='Type The Title Of A Game'
-            onChange={(event) => setSearchedGame(event.target.value)}
-            />
-            <button
-            value={searchedGame}
-            onClick={(event) => {
-              event.preventDefault();
-              searchGame(searchedGame);
-              //setSearchedGame(event.target.value)
-            }}>
-            Search For A Game
-            </button>
-          </form> */}
             <Route
               exact
               path='/wish-list'
-              render={() => <WishList wishList={wishList} />}></Route>
+              render={({ match }) => (
+                <WishList
+                  wishList={wishList}
+                  formatInput={formatInput}
+                  currentGameInfo={currentGameInfo}
+                  setCurrentGameInfo={setCurrentGameInfo}
+                />
+              )}></Route>
             <Route
               path='/:gameName'
               render={({ match }) =>
