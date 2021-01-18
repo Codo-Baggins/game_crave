@@ -2,14 +2,10 @@ import { Link, Redirect } from "react-router-dom";
 import "./Form.scss";
 
 const Form = (props) => {
-  // const { searchGame } = props.searchGame();
-  // const { searchedGame } = props.searchedGame;
-  // const { setSearchedGame } = props.setSearchedGame();
   const myFunc = () => {
     return props.searchedGame ? props.searchedGame : "";
   };
 
-  console.log(props.searchedGame);
   return (
     <form>
       <input
@@ -21,8 +17,7 @@ const Form = (props) => {
         className='search-button'
         to={`/${myFunc()}`}
         value={props.searchedGame}
-        onClick={(event) => {
-          // event.preventDefault();
+        onClick={() => {
           props.searchGame(props.searchedGame);
         }}>
         <section>Search For Game</section>

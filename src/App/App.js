@@ -6,7 +6,6 @@ import WishList from "../WishList/WishList";
 import { fetchGameData } from "../apiCalls";
 import { filterUnnecessaryData } from "../utilities/utilities";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import { render } from "react-dom";
 
 const App = () => {
   const [searchedGame, setSearchedGame] = useState(null);
@@ -21,10 +20,10 @@ const App = () => {
 
   const searchGame = (gameName) => {
     const formattedName = formatInput(gameName);
-    if (typeof searchedGame !== null) {
+    if (searchedGame !== null) {
       fetchGameData(formattedName)
         .then((data) => setCurrentGameInfo(filterUnnecessaryData(data)))
-        .catch((error) => console.error);
+        .catch(() => console.error);
     }
   };
 
@@ -60,9 +59,9 @@ const App = () => {
         return gameToRemove.id === currentGameInfo.id;
       })
     ) {
-      return "REMOVE FROM WISHLIST";
+      return "REMOVE FROM WISH LIST";
     } else {
-      return "Add To WISHLIST";
+      return "Add To WISH LIST";
     }
   };
 
