@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
-// import Form from '../Form/Form'
+import Form from "../Form/Form";
 import GameDetails from "../GameDetails/GameDetails";
+import WishList from "../WishList/WishList";
 import { fetchGameData } from "../apiCalls";
 import { filterUnnecessaryData } from "../utilities/utilities";
-const REACT_APP_KEY = process.env.REACT_APP_RAWG_API_KEY;
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 const App = () => {
   const [searchedGame, setSearchedGame] = useState(null);
@@ -12,25 +13,29 @@ const App = () => {
   const [wishList, setWishList] = useState([]);
 
   const formatInput = (gameName) => {
-    return gameName.replaceAll(" ", "-");
+    if (gameName) {
+      return gameName.replaceAll(" ", "-");
+    }
   };
 
   const searchGame = (gameName) => {
     const formattedName = formatInput(gameName);
-    if (searchedGame.length >= 0) {
-      fetchGameData(formattedName, REACT_APP_KEY)
+    if (searchedGame !== null) {
+      fetchGameData(formattedName)
         .then((data) => setCurrentGameInfo(filterUnnecessaryData(data)))
-        .catch((error) => console.error);
+        .catch(() => console.error);
     }
   };
 
-  const renderGameDetails = () => {
+  const renderGameDetails = (gameName) => {
     return (
       currentGameInfo && (
         <GameDetails
+          id={gameName}
           currentGameInfo={currentGameInfo}
           toggleFromWishList={toggleFromWishList}
           toggleButtonText={toggleButtonText}
+          setCurrentGameInfo={setCurrentGameInfo}
         />
       )
     );
@@ -54,36 +59,51 @@ const App = () => {
         return gameToRemove.id === currentGameInfo.id;
       })
     ) {
-      return "REMOVE FROM WISHLIST";
+      return "REMOVE FROM WISH LIST";
     } else {
-      return "Add To WISHLIST";
+      return "Add To WISH LIST";
     }
   };
 
   return (
-    <main>
-      <section>
-        <h1>GAME CRAVE</h1>
-        <button>Home</button>
-        <form>
-          <input
-            id='search-form'
-            placeholder='Type The Title Of A Game'
-            onChange={(event) => setSearchedGame(event.target.value)}
-          />
-          <button
-            value={searchedGame}
-            onClick={(event) => {
-              event.preventDefault();
-              searchGame(searchedGame);
-              //setSearchedGame(event.target.value)
-            }}>
-            Search For A Game
-          </button>
-        </form>
-      </section>
-      {renderGameDetails()}
-    </main>
+    <BrowserRouter>
+      <main>
+        <section>
+          <section>
+            <Link to='/' onClick={() => setCurrentGameInfo(null)}>
+              <h1>GAME CRAVE</h1>
+              <button>Home</button>
+            </Link>
+            <Link to='/wish-list'>
+              <button>My Wish List</button>
+            </Link>
+            <Form
+              searchGame={searchGame}
+              searchedGame={searchedGame}
+              setSearchedGame={setSearchedGame}
+            />
+          </section>
+          <Switch>
+            <Route
+              exact
+              path='/wish-list'
+              render={({ match }) => (
+                <WishList
+                  wishList={wishList}
+                  formatInput={formatInput}
+                  currentGameInfo={currentGameInfo}
+                  setCurrentGameInfo={setCurrentGameInfo}
+                />
+              )}></Route>
+            <Route
+              path='/:gameName'
+              render={({ match }) =>
+                renderGameDetails(match.params.gameName)
+              }></Route>
+          </Switch>
+        </section>
+      </main>
+    </BrowserRouter>
   );
 };
 

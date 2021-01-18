@@ -1,11 +1,10 @@
 import React from "react";
+// import { Link } from "react-router-dom";
 import "./GameDetails.scss";
 
 const GameDetails = (props) => {
-  // console.log(props);
   const { currentGameInfo } = props;
-  // const { toggleFromWishList } = props.toggleFromWishList;
-  // console.log("hello");
+
   return (
     <main>
       <section
