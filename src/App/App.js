@@ -70,7 +70,10 @@ const App = () => {
       <main>
         <section>
           <section id='header'>
-            <Link to='/' onClick={() => setCurrentGameInfo(null)}>
+            <Link
+              to='/'
+              style={{ textDecoration: "none" }}
+              onClick={() => setCurrentGameInfo(null)}>
               <h1 id='title'>GAME CRAVE</h1>
               <button>Home</button>
             </Link>

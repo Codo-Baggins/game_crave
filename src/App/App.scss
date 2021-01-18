@@ -18,13 +18,14 @@ html {
   // align-content: space-between;
   justify-items: center;
   align-items: space;
-  background-image:linear-gradient(to right,blue,  gold, blue)
+  background-image:linear-gradient(to right, lightblue,  grey, lightblue)
 }
 
 #title {
   font-size: 2.5em;
   font-family: copperplate fantasy;
-  text-decoration: none;
+  color: purple
+  
 }
 
 #navigation {
