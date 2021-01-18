@@ -12,12 +12,14 @@ const App = () => {
   const [wishList, setWishList] = useState([]);
 
   const formatInput = (gameName) => {
-    return gameName.replaceAll(" ", "-");
+    if (gameName) {
+      return gameName.replaceAll(" ", "-");
+    }
   };
 
   const searchGame = (gameName) => {
     const formattedName = formatInput(gameName);
-    if (searchedGame.length >= 0) {
+    if (typeof searchedGame !== null) {
       fetchGameData(formattedName)
         .then((data) => setCurrentGameInfo(filterUnnecessaryData(data)))
         .catch((error) => console.error);
@@ -61,10 +63,23 @@ const App = () => {
     }
   };
 
+  // useEffect(() => {
+  //   if (searchedGame.lengthsetSearchedGame("");
+  // }, [searchedGame]);
+
   return (
     <BrowserRouter>
       <main>
         <section>
+          <section>
+            <h1>GAME CRAVE</h1>
+            <button>Home</button>
+            <Form
+              searchGame={searchGame}
+              searchedGame={searchedGame}
+              setSearchedGame={setSearchedGame}
+            />
+          </section>
           <Switch>
             {/* <form>
             <input
@@ -83,20 +98,10 @@ const App = () => {
             </button>
           </form> */}
             <Route
-              exact
-              path='/games/:id'
+              path='/:gameName'
               render={({ match }) =>
-                renderGameDetails(match.params.id)
+                renderGameDetails(match.params.gameName)
               }></Route>
-            <Route exact path='/'>
-              <h1>GAME CRAVE</h1>
-              <button>Home</button>
-              <Form
-                searchGame={searchGame}
-                searchedGame={searchedGame}
-                setSearchedGame={setSearchedGame}
-              />
-            </Route>
           </Switch>
         </section>
       </main>
