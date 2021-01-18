@@ -34,6 +34,7 @@ const App = () => {
           currentGameInfo={currentGameInfo}
           toggleFromWishList={toggleFromWishList}
           toggleButtonText={toggleButtonText}
+          setCurrentGameInfo={setCurrentGameInfo}
         />
       )
     );
@@ -72,8 +73,10 @@ const App = () => {
       <main>
         <section>
           <section>
-            <h1>GAME CRAVE</h1>
-            <button>Home</button>
+            <Link to='/' onClick={() => setCurrentGameInfo(null)}>
+              <h1>GAME CRAVE</h1>
+              <button>Home</button>
+            </Link>
             <Form
               searchGame={searchGame}
               searchedGame={searchedGame}

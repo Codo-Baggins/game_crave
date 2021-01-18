@@ -9,9 +9,6 @@ const Form = (props) => {
     return props.searchedGame ? props.searchedGame : "";
   };
 
-  const clearInputs = () => {
-    props.setSearchedGame(null);
-  };
   console.log(props.searchedGame);
   return (
     <form>
@@ -24,14 +21,10 @@ const Form = (props) => {
         className='search-button'
         to={`/${myFunc()}`}
         value={props.searchedGame}
-        onClick={
-          (event) => {
-            // event.preventDefault();
-            props.searchGame(props.searchedGame);
-            clearInputs();
-          }
-          //setSearchedGame(event.target.value)
-        }>
+        onClick={(event) => {
+          // event.preventDefault();
+          props.searchGame(props.searchedGame);
+        }}>
         <section>Search For Game</section>
       </Link>
     </form>

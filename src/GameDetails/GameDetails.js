@@ -5,8 +5,14 @@ import "./GameDetails.scss";
 const GameDetails = (props) => {
   // console.log(props);
   const { currentGameInfo } = props;
+  // const [loading, setLoading] = useState(true)
   // const { toggleFromWishList } = props.toggleFromWishList;
   // console.log("hello");
+
+  // const resetGameInfo = () => {
+  //   props.setCurrentGame(null);
+  // };
+
   return (
     <main>
       <section
