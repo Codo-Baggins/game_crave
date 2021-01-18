@@ -69,14 +69,18 @@ const App = () => {
     <BrowserRouter>
       <main>
         <section>
-          <section>
+          <section id='header'>
             <Link to='/' onClick={() => setCurrentGameInfo(null)}>
-              <h1>GAME CRAVE</h1>
+              <h1 id='title'>GAME CRAVE</h1>
               <button>Home</button>
             </Link>
-            <Link to='/wish-list'>
-              <button>My Wish List</button>
-            </Link>
+            <div id='navigation'>
+              <Link to='/wish-list'>
+                <button>My Wish List</button>
+              </Link>
+            </div>
+          </section>
+          <section id='body'>
             <Form
               searchGame={searchGame}
               searchedGame={searchedGame}
