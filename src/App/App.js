@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Form from "../Form/Form";
 import GameDetails from "../GameDetails/GameDetails";
+import WishList from "../WishList/WishList";
 import { fetchGameData } from "../apiCalls";
 import { filterUnnecessaryData } from "../utilities/utilities";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
@@ -77,6 +78,9 @@ const App = () => {
               <h1>GAME CRAVE</h1>
               <button>Home</button>
             </Link>
+            <Link to='/wish-list'>
+              <button>My Wish List</button>
+            </Link>
             <Form
               searchGame={searchGame}
               searchedGame={searchedGame}
@@ -100,6 +104,10 @@ const App = () => {
             Search For A Game
             </button>
           </form> */}
+            <Route
+              exact
+              path='/wish-list'
+              render={() => <WishList wishList={wishList} />}></Route>
             <Route
               path='/:gameName'
               render={({ match }) =>

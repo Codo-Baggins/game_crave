@@ -1,12 +1,15 @@
 import React from "react";
-import "./GameDetails.scss";
+import { Link } from "react-router-dom";
+import "./GameCard.scss";
 
-const GameCard = () => {
+const GameCard = (props) => {
   return (
-    <section>
-      <p>Title</p>
-      <img alt='Cover Art'>Some Image</img>
-    </section>
+    <Link to={`/${props.name}`}>
+      <section className='cover-image'>
+        <p className='game-title'>{props.name}</p>
+        <img className='cover-image' alt='Cover Art' src={props.art} />
+      </section>
+    </Link>
   );
 };
 
