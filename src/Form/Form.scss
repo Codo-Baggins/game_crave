@@ -39,6 +39,7 @@
 }
 
 #search-button{
+  color: rgb(98, 0, 255);
   margin-top: 1em;
   text-align:center;
   background-color: rgb(231, 223, 223);
@@ -49,9 +50,9 @@
   border: 2px solid black;
   border-radius: 60px;
   :hover {
-    border: 2px solid lime;
+    border: 2px solid rgb(98, 0, 255);
   }
 }
 #search-button:hover {
-  border: 2px solid lime;
+  border: 2px solid rgb(98, 0, 255);
 }

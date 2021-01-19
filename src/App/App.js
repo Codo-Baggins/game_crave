@@ -61,7 +61,7 @@ const App = () => {
     ) {
       return "REMOVE FROM WISH LIST";
     } else {
-      return "Add To WISH LIST";
+      return "Add TO WISH LIST";
     }
   };
 
@@ -74,12 +74,20 @@ const App = () => {
               to='/'
               style={{ textDecoration: "none" }}
               onClick={() => setCurrentGameInfo(null)}>
+              {/* <button>Home</button> */}
               <h1 id='title'>GAME CRAVE</h1>
-              <button>Home</button>
             </Link>
-            <div id='navigation'>
+            <div className='navigation'>
+              <Link
+                to='/'
+                style={{ textDecoration: "none" }}
+                onClick={() => setCurrentGameInfo(null)}>
+                {/* <button>Home</button> */}
+                {/* <h1 id='title'>GAME CRAVE</h1> */}
+                <button className='nav-button'>Home</button>
+              </Link>
               <Link to='/wish-list'>
-                <button>My Wish List</button>
+                <button className='nav-button'>My Wish List</button>
               </Link>
             </div>
           </section>
@@ -94,7 +102,7 @@ const App = () => {
             <Route
               exact
               path='/wish-list'
-              render={({ match }) => (
+              render={() => (
                 <WishList
                   wishList={wishList}
                   formatInput={formatInput}
