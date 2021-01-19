@@ -16,7 +16,11 @@ const GameCard = (props) => {
       onClick={(event) => {
         props.setCurrentGameInfo(findGameInfo(event.target.id));
       }}>
-      <section id={props.id} key={props.key} className='game-card'>
+      <section
+        id={props.id}
+        data-testid={props.id}
+        key={props.id}
+        className='game-card'>
         <h2 id={props.id} className='game-title'>
           {props.name}
         </h2>
