@@ -16,16 +16,16 @@ const GameDetails = (props) => {
           <p id='game-title'>{currentGameInfo.name}</p>
         </section>
         <section id='main-info'>
-          {currentGameInfo.stores.map((store) => {
-            return (
-              <section className='stores'>
-                <h3>Where To Purchase</h3>
+          <section className='stores'>
+            <h3>Where To Purchase</h3>
+            {currentGameInfo.stores.map((store) => {
+              return (
                 <h4 className='stores'>
                   {store.whereToBuy} - <h5>{store.storeURL}</h5>
                 </h4>
-              </section>
-            );
-          })}
+              );
+            })}
+          </section>
           <div id='binding'>
             <p id='game-description'>{currentGameInfo.description}</p>
             <button
