@@ -14,7 +14,7 @@ const App = () => {
 
   const formatInput = (gameName) => {
     if (gameName) {
-      return gameName.replaceAll(" ", "-");
+      return gameName.replace(/\s/g, "-");
     }
   };
 
@@ -22,7 +22,9 @@ const App = () => {
     const formattedName = formatInput(gameName);
     if (searchedGame !== null) {
       fetchGameData(formattedName)
-        .then((data) => setCurrentGameInfo(filterUnnecessaryData(data)))
+        .then((data) => {
+          setCurrentGameInfo(filterUnnecessaryData(data));
+        })
         .catch(() => console.error);
     }
   };
@@ -61,7 +63,7 @@ const App = () => {
     ) {
       return "REMOVE FROM WISH LIST";
     } else {
-      return "Add TO WISH LIST";
+      return "ADD TO WISH LIST";
     }
   };
 
@@ -74,7 +76,6 @@ const App = () => {
               to='/'
               style={{ textDecoration: "none" }}
               onClick={() => setCurrentGameInfo(null)}>
-              {/* <button>Home</button> */}
               <h1 id='title'>GAME CRAVE</h1>
             </Link>
             <div className='navigation'>
@@ -82,8 +83,6 @@ const App = () => {
                 to='/'
                 style={{ textDecoration: "none" }}
                 onClick={() => setCurrentGameInfo(null)}>
-                {/* <button>Home</button> */}
-                {/* <h1 id='title'>GAME CRAVE</h1> */}
                 <button className='nav-button'>Home</button>
               </Link>
               <Link to='/wish-list'>
