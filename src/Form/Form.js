@@ -1,8 +1,8 @@
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Form.scss";
 
 const Form = (props) => {
-  const myFunc = () => {
+  const checkForSearchedGame = () => {
     return props.searchedGame ? props.searchedGame : "";
   };
 
@@ -14,7 +14,7 @@ const Form = (props) => {
         onChange={(event) => props.setSearchedGame(event.target.value)}
       />
       <Link
-        to={`/${myFunc()}`}
+        to={`/${checkForSearchedGame()}`}
         value={props.searchedGame}
         style={{ textDecoration: "none" }}
         onClick={() => {
