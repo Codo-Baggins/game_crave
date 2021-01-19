@@ -8,10 +8,74 @@
 }
 
 p { 
-  color: white;
+  color: black;
+  // background-color: black;
 }
 
 #toggle-game-button {
   width: 15em;
   height: 2em;
+}
+
+#game-title{
+  background-color: lightblue;
+  color: black;
+  font-size: 3.5em;
+  width: fit-content;
+  font-family: copperplate fantasy;
+  border-bottom-right-radius: 25px;
+  opacity: 0.9;
+}
+
+#game-description {
+  overflow:scroll;
+  vertical-align:middle;
+  align-items: space-around;
+  text-align: center;
+  width: 20em;
+  height: 30vh;
+  // box-shadow: none;
+  border-radius: 60px;
+  border: black;
+  // background: transparent;
+  background-color: lightblue;
+  padding-top: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+  opacity: 0.9;
+}
+
+#toggle-game-button {
+  font-size: 1.5em;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.stores {
+  overflow:scroll;
+  // align-items: space-around;
+  text-align: center;
+  width: 20em;
+  
+  // box-shadow: none;
+  border-radius: 60px;
+  border: black;
+  // background: transparent;
+  background-color: lightblue;
+  opacity: 0.9;
+}
+
+#main-info {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#binding {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
