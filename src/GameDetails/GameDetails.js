@@ -20,9 +20,9 @@ const GameDetails = (props) => {
             <h3>Where To Purchase</h3>
             {currentGameInfo.stores.map((store) => {
               return (
-                <h4 className='stores'>
-                  {store.whereToBuy} - <h5>{store.storeURL}</h5>
-                </h4>
+                <h5 className='stores' key={store.whereToBuy}>
+                  {store.whereToBuy} - <p>{store.storeURL}</p>
+                </h5>
               );
             })}
           </section>
