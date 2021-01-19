@@ -13,26 +13,30 @@ const GameDetails = (props) => {
           backgroundImage: `url(${currentGameInfo.backgroundImage})`,
         }}>
         <section>
-          <p id='title'>{currentGameInfo.name}</p>
+          <p id='game-title'>{currentGameInfo.name}</p>
         </section>
-        <section>
-          {currentGameInfo.stores.map((store) => {
-            return (
-              <p>
-                {store.whereToBuy} -{" "}
-                <a href={store.storeURL}>{store.storeURL}</a>
-              </p>
-            );
-          })}
-          <p>{currentGameInfo.description}</p>
+        <section id='main-info'>
+          <section className='stores'>
+            <h3>Where To Purchase</h3>
+            {currentGameInfo.stores.map((store) => {
+              return (
+                <h4 className='stores'>
+                  {store.whereToBuy} - <h5>{store.storeURL}</h5>
+                </h4>
+              );
+            })}
+          </section>
+          <div id='binding'>
+            <p id='game-description'>{currentGameInfo.description}</p>
+            <button
+              id='toggle-game-button'
+              onClick={() => {
+                props.toggleFromWishList();
+              }}>
+              {props.toggleButtonText()}
+            </button>
+          </div>
         </section>
-        <button
-          id='toggle-game-button'
-          onClick={() => {
-            props.toggleFromWishList();
-          }}>
-          {props.toggleButtonText()}
-        </button>
       </section>
     </main>
   );

@@ -1,7 +1,9 @@
 .wish-list{
+  margin: 3em;
   width:100%;
-  height: 100px;
+  height: 100%;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  overflow: scroll;
 }

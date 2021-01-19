@@ -16,7 +16,12 @@ const WishList = (props) => {
       />
     );
   });
-  return <section className='wish-list'>{gameSnapshot}</section>;
+  return (
+    <>
+      <h1>YOUR WISH LIST</h1>
+      <section className='wish-list'>{gameSnapshot}</section>
+    </>
+  );
 };
 
 export default WishList;

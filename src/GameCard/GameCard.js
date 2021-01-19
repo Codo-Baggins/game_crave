@@ -12,13 +12,14 @@ const GameCard = (props) => {
   return (
     <Link
       to={`/${formattedName}`}
+      style={{ textDecoration: "none" }}
       onClick={(event) => {
         props.setCurrentGameInfo(findGameInfo(event.target.id));
       }}>
-      <section id={props.id} key={props.key} className='cover-image'>
-        <p id={props.id} className='game-title'>
+      <section id={props.id} key={props.key} className='game-card'>
+        <h2 id={props.id} className='game-title'>
           {props.name}
-        </p>
+        </h2>
         <img
           id={props.id}
           className='cover-image'
