@@ -29,7 +29,11 @@ Contributors
 2. Below the header, a user will see a search bar where they can type in the name of a video game. Lets go ahead and type in the name of a video game.  Try typing in Pacman, Fortnite, Call Of Duty, or any other of your favorite video games and then click the "Search For Game" button (*Note:* If the name of the video game you type is not found, then nothing will display on the page after clicking the button).  
 3. Great! After searching the game you will be brought to a page that contains all of the details of that searched game. Lets go ahead and take a look at what we have.  Scrolling down the page, you will see the title of the game, all of the stores that you are able to purchase the game at, and a description about the game.  
 4. Like the game that you searched but can't afford it yet? Let's go ahead and add it to your wish list.  Click on the "ADD TO WISH LIST" button that's below the game description.  
-5. Great! Lets add another game. Scroll back to the search form at the top of the page. Try typing in "Star Wars Battlefront" or "God of War" into the search field and click the "Search For Game" button.  Now, add it to our Wish List" just as we did before by clicking the "ADD TO WISH LIST" button.
+5. Sweet! Lets add another game. Scroll back to the search form at the top of the page. Try typing in "Star Wars Battlefront" or "God of War" into the search field and click the "Search For Game" button.  Now, add it to our Wish List" just as we did before by clicking the "ADD TO WISH LIST" button. Feel free to add more games by repeating this process.  
+6. Awesome! Now lets take a look at all of the games that we have on the wish list. Scroll to the top of the page and click the "My Wish List" button. 
+7. After completing the last step, you will be brought to a page of all the video games that have been added to your wish list.  
+8. Should you want to remove any game from this list, just click on the game you want to remove. Now, you should be able to scroll down to the bottom of the page and click on the "REMOVE FROM WISH LIST" button. The game will now be out of your wish list!
+9. From there, you can return home by either clicking on the "Game Crave" title or "Home" button at the top of the page.  
 
 ## Challenges
 - Many previously unencountered errors really shortened how much work time I had
